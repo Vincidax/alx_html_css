@@ -1,0 +1,106 @@
+body {
+    background-image: url('images/Object.png');
+    background-repeat: no-repeat;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between; /* logo left, menu right */
+  align-items: center;            /* vertically align logo + links */
+  padding: 10px 20px;
+}
+
+nav ul {
+  display: flex;       /* put li items on same line */
+  gap: 30px;           /* space between menu items */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #ffffff;         /* adjust according to your design */
+  font-weight: 600;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 120px;                          
+    font-weight: bold; 
+    color: white;
+    
+}
+
+.container_steps {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    color: #ffffff;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 16px;                          
+    font-weight: bold;
+}
+
+button {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: white;
+  background-color: #C271FF;
+  font-family: 'Source Sans Pro', sans-serif;
+    font-size: 16px;                          
+    font-weight: semibold;
+}
+.pros{
+    text-align: center;
+    color: #ffffff;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 32px;                          
+}
+.cards-container {
+  display: flex;
+  gap: 20px;            /* spacing between cards */
+  justify-content: center;
+  flex-wrap: wrap;      /* wrap on smaller screens */
+}
+
+.card {
+  width: 200px;                /* card width */
+  text-align: center;          /* center text */
+  padding: 20px;
+  margin: 20px;
+}
+
+.card-img {
+  width: 120px;                /* image size */
+  height: 120px;
+  border-radius: 50%;          /* makes it circular */
+  object-fit: cover;           /* cover the area without stretching */
+  margin-bottom: 15px;
+}
+
+.card-title {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #ffffff;
+  margin: 5px 0;
+}
+
+.card-text {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 16px;
+  color: #ffffff;
+  margin: 0;
+}
+
+
+/*--------------- Part1 testimonials---------------*/
+
+.part_1_testimonials {
+    background-color: #C271FF;
+    width: 1440px;
+}
