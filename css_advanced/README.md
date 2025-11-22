@@ -2,7 +2,7 @@
 
 ## Overview
 
-This project continues from the **HTML Advanced** tasks. Your goal is to style your page using CSS while following the design found in the provided Figma file.
+This project continues from the **HTML Advanced** tasks. The goal is to style a page using CSS while following the design found in the provided Figma file.
 
 ## Objectives
 
@@ -15,10 +15,6 @@ This project continues from the **HTML Advanced** tasks. Your goal is to style y
 
 - Open the provided Figma link.
 - Click **Duplicate to Drafts** to inspect spacing, colors, and typography.
-- Download and install required fonts:
-
-  - Source Sans Pro
-  - Spin Cycle OT
 
 ## Assets
 
@@ -30,8 +26,7 @@ Download all project images and place them in an `images/` folder.
 project-folder/
 │
 ├── index.html
-├── styles/
-│   └── style.css
+├── styles.css
 ├── images/
 └── README.md
 ```
