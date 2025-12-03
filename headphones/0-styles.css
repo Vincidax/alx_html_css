@@ -1,62 +1,69 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap');
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
 
+body, html {
+    width: 100%;
+    overflow-x: hidden; /* prevent horizontal scroll */
+}
+
+
+
+
+/* ---------------- LOGO ---------------- */
 .logo_img {
     width: 161px;
     height: 32px;
 }
 
-
+/* ---------------- HEADER ---------------- */
 header {
     background-image: url('assets/images/headphones_hero_1.jpg');
-    background-size: cover;   /* makes image cover entire header */
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     color: white;
-    width: 1400px;
+    width: 1400px;   /* desktop fixed width */
     height: 800px;
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ---------------- NAVIGATION ---------------- */
 nav {
     display: flex;
-    justify-content: space-around; /* horizontal */
-    align-items: center;     /* vertical */
+    justify-content: space-around; /* desktop spacing */
+    align-items: center;
     height: 32px;
     padding: 30px 0;
 }
 
+/* Desktop menu list */
 ul {
-    
-  list-style-type: none;
-  padding-left: 0;
-  width: 225px;
-  height: 15px;
-  
+    list-style: none;
+    padding-left: 0;
+    width: 225px;
+    height: 15px;
+    margin: 0;
 }
 
 ul li {
     display: inline-block;
-    margin-right: 25px;       
-}
-ul li:last-child {
-  margin-right: 0;
+    margin-right: 25px;
 }
 
-.title_h1 {
-    font-family: 'Source Sans Pro', sans-serif;
-    font-size: 32px;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 10px;
+ul li:last-child {
+    margin-right: 0;
 }
-.subtitle_h1 {
-    padding: 0;
-    margin: 0;
-    font-family: 'Source Sans Pro', sans-serif;
-    font-size: 16px;
-    font-weight: bold;
-    text-align: center;
-}
+
 ul li a {
     display: block;
     text-decoration: none;
@@ -64,11 +71,97 @@ ul li a {
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 12px;
 }
-ul li a:hover {
-    color: #FF6565;    
+
+ul li a:hover,
+ul li a:active {
+    color: #FF6565;
 }
 
+/* Hide the checkbox */
+.hamburger-checkbox {
+    display: none;
+}
 
+/* Hamburger (mobile) */
+.hamburger {
+    display: none; /* hidden on desktop */
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger .bar {
+    width: 40px;
+    height: 3px;
+    background: white;
+    margin: 2.5px 0;
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+/* Mobile menu hidden by default */
+.mobile-menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    padding: 20px 0;
+}
+
+.mobile-menu li {
+    margin: 15px 0;
+    text-align: center;   
+}
+.mobile-menu li a {
+
+    display: none;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 16px;
+}
+
+/* Show menu when checkbox is checked */
+.hamburger-checkbox:checked + .hamburger + .desktop-menu + .mobile-menu {
+    display: flex;
+}
+
+/* Transform bars when checkbox is checked */
+.hamburger-checkbox:checked + .hamburger .bar1 {
+    transform: rotate(45deg) translate(5px, 5px);
+    background: white;
+}
+
+.hamburger-checkbox:checked + .hamburger .bar2 {
+    opacity: 0; /* middle bar disappears */
+}
+
+.hamburger-checkbox:checked + .hamburger .bar3 {
+    transform: rotate(-45deg) translate(5px, -5px);
+    background: white;
+}
+
+/* ---------------- TITLES ---------------- */
+.title_h1 {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.subtitle_h1 {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+/* ---------------- BUTTON ---------------- */
 button {
     color: white;
     font-weight: bold;
@@ -78,28 +171,133 @@ button {
     height: 44px;
     border: none;
     border-radius: 22px;
-    margin: 20px 0px;
-    
+    margin: 20px 0;
 }
 
+button:hover,
+button:active {
+    opacity: 0.9;
+}
+
+/* ---------------- HERO ---------------- */
 .hero {
+    display: grid;
+    place-items: center;
     margin-left: auto;
     margin-right: auto;
     margin-top: 300px;
-    display: grid;
-    
-    place-items: center;
-    
-    width: 637px;
+    width: 637px;   /* desktop fixed width */
     height: 313px;
 }
 
+/* Paragraph inside hero */
 .paragraph_button_1 {
-    color: rgb(255, 255, 255);
+    color: white;
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 16px;
     line-height: 26px;
     text-align: center;
-    
 }
 
+/* ---------------- TABLET (≤768px) ---------------- */
+@media (max-width: 768px) {
+    header {
+        width: 100%;  /* fill tablet width */
+        height: 800px; /* keep desktop height */
+    }
+
+    nav {
+        width: 100%;
+        justify-content: space-around;
+        gap: 40px;
+    }
+
+    ul {
+        display: flex;
+        justify-content: center;
+        width: auto;
+    }
+
+    ul li {
+        margin-right: 25px;
+    }
+
+    .hero {
+        width: 90%;   /* scale hero width */
+        margin-left: auto;
+        margin-right: auto;
+        height: 313px; /* same height */
+    }
+
+    button {
+        width: 162px;
+        height: 44px;
+    }
+}
+
+/* ---------------- MOBILE (≤480px) ---------------- */
+@media (max-width: 480px) {
+    header {
+        width: 100%;   /* full width */
+        height: 869px; /* same height */
+        background-size: auto 100%;
+        background-position: 35% top;
+        padding-top: 20px;
+    }
+
+    nav {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: space-between; /* logo left, hamburger right */
+        position: relative;
+        padding: 20px 0;
+    }
+
+    ul {
+        display: none; /* hide desktop menu */
+    }
+    .desktop-menu {
+        display: none; /* hide desktop menu */
+    }
+
+
+
+    .hamburger {
+        display: flex; /* show hamburger */
+        position: absolute; /* take out of normal flow */
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        
+    }
+    /* Center logo */
+    .logo_headphones {
+        order: 1; /* optional, but ensures it’s first in flex order */
+        margin: 0 auto; /* center horizontally */
+    }
+
+    .mobile-menu li a {
+
+    display: block;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 16px;
+}
+
+    .hero {
+        width: 100%;  /* hero full width */
+        margin-left: 0;
+        margin-right: 0;
+        height: 313px;
+        padding: 10px;
+    }
+
+    button {
+        width: 162px;
+        height: 44px;
+        margin: 60px 0;
+    }
+}

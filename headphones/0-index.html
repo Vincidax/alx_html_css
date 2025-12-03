@@ -4,26 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="0-styles.css">
     <title>Document</title>
 </head>
 <body>
     <header>
         <nav class="container_nav">
-            <div class="logo_headphones">
-                <img src="assets/images/logo_headphones.png" alt="HEADPHONES LOGO" class="logo_img">
-            </div>
-            <div class="hamburger">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-            </div>        
-            <ul>
-                <li><a href="#">what we do</a></li>
-                <li><a href="#">our results</a></li>
-                <li><a href="#">contact us</a></li>
-            </ul>
-        </nav>
+    <div class="logo_headphones">
+        <a><img src="assets/images/logo_headphones.png" alt="HEADPHONES LOGO" class="logo_img"></a>
+    </div>
+
+    <!-- Hidden checkbox -->
+    <input type="checkbox" id="hamburger-toggle" class="hamburger-checkbox">
+
+    <!-- Hamburger icon (label for checkbox) -->
+    <label for="hamburger-toggle" class="hamburger">
+        <div class="bar bar1"></div>
+        <div class="bar bar2"></div>
+        <div class="bar bar3"></div>
+    </label>
+
+    <ul class="desktop-menu">
+        <li><a href="#">what we do</a></li>
+        <li><a href="#">our results</a></li>
+        <li><a href="#">contact us</a></li>
+    </ul>
+
+    <ul class="mobile-menu">
+        <li><a href="#">what we do</a></li>
+        <li><a href="#">our results</a></li>
+        <li><a href="#">contact us</a></li>
+    </ul>
+</nav>
+
+
         <div class="hero">
             <h1>
                 <p class="title_h1">ipsum dolor set amet lorem ipsum</p>
