@@ -11,9 +11,6 @@ body, html {
     overflow-x: hidden; /* prevent horizontal scroll */
 }
 
-
-
-
 /* ---------------- LOGO ---------------- */
 .logo_img {
     width: 161px;
@@ -47,7 +44,7 @@ nav {
 }
 
 /* Desktop menu list */
-ul {
+header ul {
     list-style: none;
     padding-left: 0;
     width: 225px;
@@ -55,16 +52,16 @@ ul {
     margin: 0;
 }
 
-ul li {
+header ul li {
     display: inline-block;
     margin-right: 25px;
 }
 
-ul li:last-child {
+header ul li:last-child {
     margin-right: 0;
 }
 
-ul li a {
+header ul li a {
     display: block;
     text-decoration: none;
     color: white;
@@ -72,8 +69,8 @@ ul li a {
     font-size: 12px;
 }
 
-ul li a:hover,
-ul li a:active {
+header ul li a:hover,
+header ul li a:active {
     color: #FF6565;
 }
 
@@ -584,4 +581,165 @@ img {
     }
 
     
+}
+
+/* ---------------- DESKTOP FOOTER ---------------- */
+footer {
+    background-color:#071629;
+    color: #fff;
+    padding: 40px 60px;
+}
+
+/* Container for logo and links on the same line */
+footer .footer-top {
+    display: flex;
+    justify-content: space-between; /* logo left, links right */
+    align-items: center;
+}
+
+/* Logo */
+footer .logo_headphones {
+    margin: 0; /* remove bottom margin for flex layout */
+}
+
+/* Links */
+footer ul.hhh {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+footer ul.hhh li a {
+    color: #fff;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer ul.hhh li a:hover svg {
+    fill: #1da1f2;
+}
+
+footer .footer_icon {
+    width: 24px;
+    height: 24px;
+    fill: #fff;
+}
+
+/* Copyright on its own line */
+footer .copyright {
+    display: block;
+    text-align: center;
+    font-size: 12px;
+    font-weight: regular;
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #ccc;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+/* ---------------- TABLET FOOTER ---------------- */
+@media (max-width: 768px) {
+    footer {
+    background-color:#071629;
+    color: #fff;
+    padding: 30px 30px;
+}
+
+/* Container for logo and links on the same line */
+footer .footer-top {
+    display: flex;
+    justify-content: space-between; /* logo left, links right */
+    align-items: center;
+}
+
+/* Logo */
+footer .logo_headphones {
+    margin: 0; /* remove bottom margin for flex layout */
+}
+
+/* Links */
+footer ul.hhh {
+    list-style: none;
+    display: flex;
+    gap: 0px;
+    padding: 0;
+    margin: 0;
+}
+
+footer ul.hhh li a {
+    color: #fff;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer ul.hhh li a:hover svg {
+    fill: #1da1f2;
+}
+
+footer .footer_icon {
+    width: 24px;
+    height: 24px;
+    fill: #fff;
+}
+
+/* Copyright on its own line */
+footer .copyright {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #ccc;
+    font-size: 12px;
+    font-weight: regular;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+    
+}
+
+/* ---------------- MOBILE FOOTER ---------------- */
+@media (max-width: 480px) {
+    footer .footer-top {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    footer .logo_headphones {
+        order: 0;
+    }
+
+    footer ul.hhh {
+        order: 1;
+        display: flex;
+        flex-direction: row; /* keep horizontal */
+        justify-content: center;
+        gap: 12px;
+        margin: 0;
+        padding: 0; /* remove any default padding */
+        list-style: none; /* remove bullets */
+    }
+
+    footer ul.hhh li {
+        margin: 0; /* remove extra spacing from li */
+        padding: 0;
+    }
+
+    footer .footer_icon {
+        width: 18px;
+        height: 18px;
+    }
+
+    footer .copyright {
+        order: 2;
+        font-size: 0.75rem;
+        margin-top: 10px;
+    }
 }
