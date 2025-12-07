@@ -1,16 +1,280 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pentagon Test</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Headphones</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap');
+
+/* ---------------- RESET ---------------- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body, html { width: 100%; overflow-x: hidden; font-family: 'Source Sans Pro', sans-serif; }
+
+/* ---------------- LOGO ---------------- */
+.logo_img { width: 161px; height: 32px; }
+
+/* ---------------- HEADER ---------------- */
+header {
+    background-image: url('assets/images/headphones_hero_1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    width: 100%;
+    height: 800px;
+    position: relative;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 20px;
+}
+
+/* Desktop menu */
+.desktop-menu { list-style: none; display: flex; gap: 25px; }
+.desktop-menu li a { text-decoration: none; color: white; font-weight: bold; font-size: 12px; }
+.desktop-menu li a:hover { color: #FF6565; }
+
+/* Hamburger */
+.hamburger { display: none; flex-direction: column; cursor: pointer; z-index: 12; }
+.hamburger .bar { width: 40px; height: 3px; background: white; margin: 2.5px 0; transition: all 0.3s ease; transform-origin: center; }
+
+/* Mobile menu */
+.mobile-menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    background: rgba(0,0,0,0.8);
+    padding: 20px 0;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+.mobile-menu li { margin: 15px 0; text-align: center; }
+.mobile-menu li a { display: block; color: white; font-weight: bold; font-size: 16px; text-decoration: none; }
+.mobile-menu li a:hover { color: #FF6565; }
+.mobile-menu.open { display: flex; opacity: 1; transform: translateY(0); }
+
+/* Hamburger X animation */
+.hamburger.active .bar1 { transform: rotate(45deg) translate(5px,5px); }
+.hamburger.active .bar2 { opacity: 0; }
+.hamburger.active .bar3 { transform: rotate(-45deg) translate(5px,-5px); }
+
+/* Hero section */
+.hero { display: grid; place-items: center; margin: 300px auto 0; width: 637px; height: 313px; text-align: center; }
+.title_h1 { font-size: 32px; font-weight: bold; }
+.subtitle_h1 { font-size: 16px; font-weight: bold; }
+.paragraph_button_1 { font-size: 16px; line-height: 26px; margin-top: 20px; color: white; }
+
+/* Button */
+button { color: white; font-weight: bold; font-size: 14px; background-color: #FF6565; width: 162px; height: 44px; border: none; border-radius: 22px; margin: 20px 0; cursor: pointer; }
+button:hover { opacity: 0.9; }
+
+/* ---------------- What we do section ---------------- */
+.what_we_do_intro, .results_intro { display: grid; place-items: center; margin: 0 auto; width: 637px; height: 313px; }
+.what_we_do_par { font-size: 16px; line-height: 26px; text-align: center; color: #071629; padding: 15px; }
+
+.what_we_do_icons {
+    width: 1002px;
+    gap: 58px;
+    padding: 20px;
+    border-radius: 12px;
+    background: #fff;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card_1 {
+    width: 207px;
+    height: 173px;
+    padding: 20px;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.card-icon { width: 61.43px; height: 61.44px; fill: #FF6565; margin-bottom: 12px; }
+.card-text { font-size: 14px; color: #071629; line-height: 1.5; }
+
+/* ---------------- Results section ---------------- */
+.results { background-color: #071629; color: white; width: 100%; height: 650px; }
+.results_par { font-size: 16px; line-height: 26px; text-align: center; padding: 15px; }
+.results_icons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 58px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.card_2 {
+    width: 207px;
+    height: 173px;
+    padding: 20px;
+    background-color: #1a1a1a;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.percentage { font-size: 46px; font-weight: bold; margin-top: 25px; }
+.card-text2 { font-size: 14px; color: white; line-height: 1.5; margin-top: 30px; }
+
+/* ---------------- Contact section ---------------- */
+.contact_us { padding: 60px 20px; text-align: center; }
+.contact_us h2 { font-size: 2rem; margin-bottom: 40px; }
+.contact_form { display: flex; flex-direction: column; align-items: center; gap: 20px; max-width: 500px; margin: 0 auto; }
+.contact_form input { width: 100%; border: none; border-bottom: 2px solid #333; background: transparent; padding: 10px 5px; font-size: 1rem; outline: none; }
+
+/* ---------------- Footer ---------------- */
+footer { background-color:#071629; color: #fff; padding: 40px 60px; text-align: center; }
+footer .footer-top { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+footer ul.hhh { list-style: none; display: flex; gap: 20px; padding: 0; margin: 0; }
+footer ul.hhh li a { color: #fff; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
+footer .footer_icon { width: 24px; height: 24px; fill: #fff; }
+footer .copyright { display: block; text-align: center; font-size: 0.9rem; color: #ccc; margin-top: 20px; }
+
+/* ---------------- Mobile / Tablet ---------------- */
+@media(max-width: 768px){
+    .desktop-menu { display: none; }
+    .hamburger { display: flex; }
+    .hero, .what_we_do_intro, .results_intro { width: 90%; margin: 0 auto; }
+    .what_we_do_icons, .results_icons { width: 100%; max-width: 600px; }
+}
+@media(max-width:480px){
+    nav { justify-content: space-between; }
+    .logo_headphones { margin: 0 auto; }
+    .hero { width: 100%; padding: 20px; }
+    .what_we_do_icons, .results_icons { flex-direction: column; align-items: center; gap: 30px; }
+}
+</style>
 </head>
 <body>
-    <h1>Pentagon Card Test</h1>
-    <div class="card_2">
-        <p class="percentage">+2%</p>
-        <p class="card-text2">Lorem ipsum dolor</p>
+<header>
+    <nav class="container_nav">
+        <div class="logo_headphones">
+            <a><img src="assets/images/logo_headphones.png" alt="HEADPHONES LOGO" class="logo_img"></a>
+        </div>
+        <div class="hamburger" id="hamburger">
+            <div class="bar bar1"></div>
+            <div class="bar bar2"></div>
+            <div class="bar bar3"></div>
+        </div>
+        <ul class="desktop-menu">
+            <li><a href="#">what we do</a></li>
+            <li><a href="#">our results</a></li>
+            <li><a href="#">contact us</a></li>
+        </ul>
+        <ul class="mobile-menu" id="mobileMenu">
+            <li><a href="#">what we do</a></li>
+            <li><a href="#">our results</a></li>
+            <li><a href="#">contact us</a></li>
+        </ul>
+    </nav>
+    <div class="hero">
+        <h1>
+            <p class="title_h1">ipsum dolor set amet lorem ipsum</p>
+            <p class="subtitle_h1">Lorem ipsum dolor set amet lorem ipsum dolor set</p>
+        </h1>
+        <button>CALL TO ACTION</button>
+        <p class="paragraph_button_1">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
     </div>
+</header>
+
+<main>
+    <section>
+        <div class="what_we_do_intro">
+            <p class="what_we_do_par">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+        <div class="what_we_do_icons">
+            <div class="card_1">
+                <svg class="card-icon"><use xlink:href="sprite.svg#icon-ic_sound"></use></svg>
+                <p class="card-text">Lorem ipsum dolor sit amet.</p>
+            </div>
+            <div class="card_1">
+                <svg class="card-icon"><use xlink:href="sprite.svg#icon-ic_video"></use></svg>
+                <p class="card-text">Lorem ipsum dolor sit amet.</p>
+            </div>
+            <div class="card_1">
+                <svg class="card-icon"><use xlink:href="sprite.svg#icon-ic_music"></use></svg>
+                <p class="card-text">Lorem ipsum dolor sit amet.</p>
+            </div>
+            <div class="card_1">
+                <svg class="card-icon"><use xlink:href="sprite.svg#icon-ic_hearing"></use></svg>
+                <p class="card-text">Lorem ipsum dolor sit amet.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="results">
+        <div class="results_intro">
+            <p class="results_par">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+        <div class="results_icons">
+            <div class="card_2">
+                <p class="percentage">+2%</p>
+                <p class="card-text2">Lorem ipsum dolor</p>
+            </div>
+            <div class="card_2">
+                <p class="percentage">+2%</p>
+                <p class="card-text2">Lorem ipsum dolor</p>
+            </div>
+            <div class="card_2">
+                <p class="percentage">+2%</p>
+                <p class="card-text2">Lorem ipsum dolor</p>
+            </div>
+            <div class="card_2">
+                <p class="percentage">+2%</p>
+                <p class="card-text2">Lorem ipsum dolor</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact_us">
+        <h2>Contact Us</h2>
+        <form class="contact_form">
+            <input type="text" name="name" placeholder="Name">
+            <input type="email" name="email" placeholder="Email">
+            <input name="message" placeholder="Message">
+            <button>CALL TO ACTION</button>
+        </form>
+    </section>
+</main>
+
+<footer>
+    <div class="footer-top">
+        <div class="logo_headphones">
+            <a><img src="assets/images/logo_headphones.png" alt="HEADPHONES LOGO" class="logo_img"></a>
+        </div>
+        <ul class="hhh">
+            <li><a href="#"><svg class="footer_icon"><use xlink:href="sprite.svg#icon-ic_facebook"></use></svg></a></li>
+            <li><a href="#"><svg class="footer_icon"><use xlink:href="sprite.svg#icon-ic_twitter"></use></svg></a></li>
+            <li><a href="#"><svg class="footer_icon"><use xlink:href="sprite.svg#icon-ic_instagram"></use></svg></a></li>
+        </ul>
+    </div>
+    <p class="copyright">©headphones 2020</p>
+</footer>
+
+<script>
+// Hamburger toggle
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    mobileMenu.classList.toggle('open');
+});
+</script>
 </body>
 </html>
